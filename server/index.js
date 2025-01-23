@@ -7,6 +7,11 @@ app.use(cors());
 
 let todos = [];
 
+const cors = require('cors');
+app.use(cors({
+  origin: process.env.VERCEL_URL || 'http://localhost:3000'
+}));
+
 app.get('/api/todos', (req, res) => {
     res.json(todos);
 });
